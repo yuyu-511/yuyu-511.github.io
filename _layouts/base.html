@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.html_lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {% if page.title %}
+      {{ page.title }} | Yuya Harada
+    {% else %}
+      Yuya Harada | Portfolio
+    {% endif %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body class="lang-en theme-dark">
+  {% include status-bar.html %}
+
+  <main class="{{ page.main_class | default: 'screen screen-overview' }}">
+    {{ content }}
+    <button class="to-top" aria-label="Scroll to top">⌃</button>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -441,15 +441,48 @@ body.lang-ja [data-lang="en"] {
   line-height: 1.6;
 }
 
+/* ===== Info list (About profile) ===== */
+.info-list {
+  margin: 0;
+  padding: 0;
+}
+
+.info-list > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 2px;
+  margin-bottom: 6px;
+}
+
+.info-list dt {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.info-list dd {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ===== Publications list ===== */
+.pub-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.pub-list li + li {
+  margin-top: 4px;
+}
+
 /* ===== Home button (back to home screen) ===== */
 .section-home-button {
-  display: flex;
-  justify-content: center;
   margin-top: 8px;
+  text-align: center;
 }
 
 .home-button {
-  /* 横長ピル型（PC などの横長画面向け） */
+  /* 横長ピル型ホームボタン */
   width: 120px;
   height: 48px;
   border-radius: 999px;
@@ -464,7 +497,7 @@ body.lang-ja [data-lang="en"] {
 
 /* 押した感のアニメーション */
 .home-button:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(15, 23, 42, 0.9) inset;
@@ -491,6 +524,12 @@ body.lang-ja [data-lang="en"] {
 .blog-item-meta {
   font-size: 11px;
   opacity: 0.7;
+}
+
+/* Misc text helpers */
+.muted {
+  opacity: 0.7;
+  font-size: 12px;
 }
 
 /* Links */
@@ -675,5 +714,10 @@ body.theme-light .to-top {
 
   .lang-toggle button {
     padding: 2px 4px;
+  }
+
+  .home-button {
+    width: 96px;
+    height: 40px;
   }
 }

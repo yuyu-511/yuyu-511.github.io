@@ -1,0 +1,16 @@
+title: "Yuya Harada Portfolio"
+description: "iPadOS-style portfolio site"
+timezone: Asia/Tokyo
+
+# GitHub Pages の標準 Jekyll をそのまま使う想定
+markdown: kramdown
+highlighter: rouge
+
+# _site 以下にビルドされる
+exclude:
+  - README.md
+  - node_modules
+  - vendor
+
+# 将来使いたくなったときのための余白（今は空でOK）
+plugins: []

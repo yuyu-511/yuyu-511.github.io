@@ -1,0 +1,35 @@
+---
+layout: base
+title: "🎅 Special Gift"
+main_class: "gift-screen"
+---
+
+<h1>🎉 Special Gift 🎄</h1>
+
+<p class="special-sub">
+  Merry Christmas!  
+  This is your special present 🎁✨
+</p>
+
+<!-- 🎁 特別ギフト画像（ファイル名は自由に変更 OK） -->
+<img src="/assets/img/gifts/special.png" class="gift-image" alt="Special Gift">
+
+<!-- 🎵 BGM 再生ボタン -->
+<button id="play-bgm" class="bgm-button">BGM 🎶</button>
+<audio id="bgm-audio" src="/assets/audio/special.mp3"></audio>
+
+<script>
+document.getElementById("play-bgm").addEventListener("click", () => {
+  const bgm = document.getElementById("bgm-audio");
+  bgm.volume = 0.5;
+  bgm.play();
+});
+</script>
+
+<style>
+.special-sub {
+  font-size: 15px;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+</style>

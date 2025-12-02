@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+
+  <title>🎁 Quest — Christmas Password Puzzle</title>
+  <meta name="description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+  <meta property="og:title" content="🎁 Quest — Christmas Password Puzzle" />
+  <meta property="og:description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body class="lang-en theme-dark christmas-mode">
+
+  <div class="status-bar christmas-bar">
+  <div class="status-left">
+    <span id="status-time">9:41</span>
+  </div>
+
+  <div class="status-center">
+    🎄 1 Week Advent Calendar
+  </div>
+    </div>
+  </div>
+</div>
+
+
+  <main class="quest-screen">
+    <section class="quest-container">
+
+  <h1 class="quest-title">🎁 Christmas Quest</h1>
+  <p class="quest-sub">
+    ビンゴシートの光っている場所を読んで、秘密のキーワードを探してね。
+  </p>
+
+  <!-- ================================
+        7×7 Bingo Grid
+  ================================= -->
+  <div class="bingo-grid">
+
+    <!-- 列ヘッダ A〜G -->
+    <div class="grid-header"></div>
+    <div class="grid-header">A</div>
+    <div class="grid-header">B</div>
+    <div class="grid-header">C</div>
+    <div class="grid-header">D</div>
+    <div class="grid-header">E</div>
+    <div class="grid-header">F</div>
+    <div class="grid-header">G</div>
+
+    <!-- 行 18 -->
+    <div class="grid-header">18</div>
+    <div class="cell" data-id="18A"></div>
+    <div class="cell" data-id="18B"></div>
+    <div class="cell" data-id="18C"></div>
+    <div class="cell cell-glow" data-id="18D"></div>
+    <div class="cell" data-id="18E"></div>
+    <div class="cell" data-id="18F"></div>
+    <div class="cell" data-id="18G"></div>
+
+    <!-- 行 19 -->
+    <div class="grid-header">19</div>
+    <div class="cell" data-id="19A"></div>
+    <div class="cell" data-id="19B"></div>
+    <div class="cell" data-id="19C"></div>
+    <div class="cell" data-id="19D"></div>
+    <div class="cell" data-id="19E"></div>
+    <div class="cell" data-id="19F"></div>
+    <div class="cell cell-glow" data-id="19G"></div>
+
+    <!-- 行 20 -->
+    <div class="grid-header">20</div>
+    <div class="cell" data-id="20A"></div>
+    <div class="cell cell-glow" data-id="20B"></div>
+    <div class="cell cell-glow" data-id="20C"></div>
+    <div class="cell" data-id="20D"></div>
+    <div class="cell" data-id="20E"></div>
+    <div class="cell" data-id="20F"></div>
+    <div class="cell" data-id="20G"></div>
+
+    <!-- 行 21 -->
+    <div class="grid-header">21</div>
+    <div class="cell" data-id="21A"></div>
+    <div class="cell" data-id="21B"></div>
+    <div class="cell" data-id="21C"></div>
+    <div class="cell" data-id="21D"></div>
+    <div class="cell" data-id="21E"></div>
+    <div class="cell cell-glow" data-id="21F"></div>
+    <div class="cell cell-glow" data-id="21G"></div>
+
+    <!-- 行 22 -->
+    <div class="grid-header">22</div>
+    <div class="cell" data-id="22A"></div>
+    <div class="cell" data-id="22B"></div>
+    <div class="cell" data-id="22C"></div>
+    <div class="cell cell-glow" data-id="22D"></div>
+    <div class="cell" data-id="22E"></div>
+    <div class="cell" data-id="22F"></div>
+    <div class="cell" data-id="22G"></div>
+
+    <!-- 行 23 -->
+    <div class="grid-header">23</div>
+    <div class="cell cell-glow" data-id="23A"></div>
+    <div class="cell" data-id="23B"></div>
+    <div class="cell" data-id="23C"></div>
+    <div class="cell" data-id="23D"></div>
+    <div class="cell" data-id="23E"></div>
+    <div class="cell" data-id="23F"></div>
+    <div class="cell" data-id="23G"></div>
+
+    <!-- 行 24 -->
+    <div class="grid-header">24</div>
+    <div class="cell cell-glow" data-id="24A"></div>
+    <div class="cell" data-id="24B"></div>
+    <div class="cell" data-id="24C"></div>
+    <div class="cell" data-id="24D"></div>
+    <div class="cell" data-id="24E"></div>
+    <div class="cell" data-id="24F"></div>
+    <div class="cell" data-id="24G"></div>
+
+  </div>
+
+  <!-- ================================
+        9マスヒント
+  ================================= -->
+  <h2 class="hint-title">🔍 Hidden Coordinates</h2>
+
+  <div class="hint-grid">
+    <div class="hint-cell">18D</div>
+    <div class="hint-cell">19G</div>
+    <div class="hint-cell">20B</div>
+    <div class="hint-cell">20B</div>
+    <div class="hint-cell">21G</div>
+    <div class="hint-cell">22D</div>
+    <div class="hint-cell">18D</div>
+    <div class="hint-cell">23A</div>
+    <div class="hint-cell">24A</div>
+  </div>
+
+  <p class="hint-sub">
+    この9つをつないで導かれる単語を入力すると…？
+  </p>
+
+  <!-- ================================
+        Final Password Button
+  ================================= -->
+  <button class="quest-button" onclick="openQuestPassword()">Answer</button>
+
+</section>
+
+
+<!-- ================================
+      Password Modal
+================================ -->
+<div id="quest-password-modal" class="password-modal hidden">
+  <div class="password-modal-inner">
+
+    <h2>Enter Final Keyword</h2>
+
+    <p class="modal-instruction">キーワードを入力してね 🎁</p>
+
+    <input
+      id="quest-pass-input"
+      type="text"
+      class="modal-input"
+      placeholder="秘密の合言葉"
+    />
+
+    <p id="quest-pass-error" class="modal-error"></p>
+
+    <div class="modal-buttons">
+      <button class="btn-cancel" onclick="closeQuestPassword()">Cancel</button>
+      <button class="btn-ok" onclick="submitQuestPassword()">Open</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ================================
+    Quest Modal controls
+================================ */
+function openQuestPassword() {
+  document.getElementById("quest-password-modal").classList.remove("hidden");
+  document.getElementById("quest-pass-input").value="";
+  document.getElementById("quest-pass-error").textContent="";
+}
+
+function closeQuestPassword() {
+  document.getElementById("quest-password-modal").classList.add("hidden");
+}
+
+/* ================================
+    Final Keyword
+    （9マスをつなげると "merryxmas"）
+================================ */
+function submitQuestPassword() {
+  const input = document.getElementById("quest-pass-input").value.trim().toLowerCase();
+
+  if (input === "merryxmas") {
+
+    const modal = document.querySelector(".password-modal-inner");
+    modal.classList.add("unlock-animation");
+
+    setTimeout(() => {
+      window.location.href = "/gifts/special.html";
+    }, 650);
+
+  } else {
+    document.getElementById("quest-pass-error").textContent =
+      "違うみたい…もう一回考えてみてね 🎄";
+  }
+}
+</script>
+
+    <button class="to-top" aria-label="Scroll to top">⌃</button>
+  </main>
+
+  <script src="/assets/js/snow.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

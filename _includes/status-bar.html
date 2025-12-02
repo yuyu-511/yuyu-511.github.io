@@ -1,40 +1,11 @@
-<div class="status-bar">
+<div class="status-bar christmas-bar">
   <div class="status-left">
     <span id="status-time">9:41</span>
   </div>
 
   <div class="status-center">
-    <span data-lang="en">
-      {{ page.status_label_en | default: 'Portfolio' }}
-    </span>
-    <span data-lang="ja">
-      {{ page.status_label_ja | default: 'ポートフォリオ' }}
-    </span>
+    🎄 1 Week Advent Calendar
   </div>
-
-  <div class="status-right">
-    <span class="status-icon">📶</span>
-    <span class="status-icon">📡</span>
-    <span class="status-icon battery">
-      <span class="battery-body">
-        <span class="battery-level"></span>
-      </span>
-      <span class="battery-tip"></span>
-    </span>
-
-    <div class="theme-toggle">
-      <button
-        type="button"
-        id="theme-toggle-btn"
-        aria-label="Toggle theme"
-      >
-        ☾
-      </button>
-    </div>
-
-    <div class="lang-toggle">
-      <button type="button" data-lang-switch="en" class="active">EN</button>
-      <button type="button" data-lang-switch="ja">日本語</button>
     </div>
   </div>
 </div>

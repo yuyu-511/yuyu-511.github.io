@@ -1,4 +1,9 @@
-/* ===== Reset-ish ===== */
+/* ==========================================
+   🎄 Christmas Advent Calendar — Global Style
+   iPhone風UIベース ＋ クリスマス専用テーマ
+========================================== */
+
+/* Reset */
 *,
 *::before,
 *::after {
@@ -7,19 +12,44 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Helvetica Neue", Arial, sans-serif;
-  background: radial-gradient(circle at top, #151928, #050816 50%, #02010a);
-  color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: #fafafa;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 0, 90, 0.2),
+      rgba(0, 40, 90, 0.6) 40%,
+      rgba(0, 0, 30, 0.9)
+    ),
+    url("/assets/img/snow-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-/* ===== Language visibility ===== */
+body.christmas-mode {
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 60, 60, 0.25),
+      rgba(0, 70, 50, 0.4) 40%,
+      rgba(0, 20, 30, 0.9)
+    ),
+    url("/assets/img/snow-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ==============================
+   Language visibility
+============================== */
 body.lang-en [data-lang="ja"],
 body.lang-ja [data-lang="en"] {
   display: none;
 }
 
-/* ===== Shell / Screens ===== */
+/* ==============================
+   Shell / Screens
+============================== */
 .shell {
   scroll-behavior: smooth;
 }
@@ -30,7 +60,9 @@ body.lang-ja [data-lang="en"] {
   padding-top: 40px; /* status bar 分 */
 }
 
-/* ===== Status bar ===== */
+/* ==============================
+   Status Bar
+============================== */
 .status-bar {
   position: fixed;
   top: 0;
@@ -42,69 +74,38 @@ body.lang-ja [data-lang="en"] {
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  opacity: 0.95;
   z-index: 40;
+
   background: linear-gradient(
     to bottom,
-    rgba(15, 23, 42, 0.85),
-    rgba(15, 23, 42, 0.4)
+    rgba(200, 0, 0, 0.85),
+    rgba(180, 0, 0, 0.65)
   );
-  backdrop-filter: blur(18px);
-  color: #f9fafb;
+  backdrop-filter: blur(16px);
+
+  color: #fff7f7;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 1px 6px rgba(0, 0, 0, 0.4);
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
-.status-left,
-.status-center,
-.status-right {
-  display: flex;
-  align-items: center;
-}
-
-.status-left {
-  flex: 0 0 auto;
-  min-width: 60px;
-}
-
+.status-center span,
 .status-center {
-  flex: 1 1 auto;
-  justify-content: center;
-  text-align: center;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.status-right {
-  flex: 0 0 auto;
-  justify-content: flex-end;
-  gap: 6px;
-}
-
-#status-time {
-  font-variant-numeric: tabular-nums;
-}
-
-/* Icons in status bar */
 .status-icon {
   font-size: 14px;
-  line-height: 1;
 }
 
-/* Battery icon */
-.battery {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-}
-
+/* Battery */
 .battery-body {
   width: 20px;
   height: 10px;
   border-radius: 3px;
-  border: 1px solid rgba(249, 250, 251, 0.8);
+  border: 1px solid rgba(255, 240, 240, 0.85);
   padding: 1px;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
 }
@@ -112,452 +113,405 @@ body.lang-ja [data-lang="en"] {
 .battery-level {
   width: 70%;
   height: 100%;
+  background: #00ff88;
   border-radius: 2px;
-  background: #22c55e;
 }
 
 .battery-tip {
   width: 3px;
   height: 6px;
-  border-radius: 1px;
-  border: 1px solid rgba(249, 250, 251, 0.8);
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.85);
 }
 
-/* Language toggle buttons */
-.lang-toggle {
-  display: inline-flex;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.8);
-}
-
-.lang-toggle button {
-  border: none;
-  padding: 2px 6px;
-  font-size: 10px;
-  cursor: pointer;
-  background: transparent;
-  color: #e5e7eb;
-}
-
-.lang-toggle button.active {
-  background: rgba(59, 130, 246, 0.3);
-  color: #bfdbfe;
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  display: inline-flex;
-  margin-right: 4px;
-}
-
+/* Theme button */
 .theme-toggle button {
-  border: 1px solid rgba(148, 163, 184, 0.8);
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #f9fafb;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
   font-size: 11px;
   padding: 2px 6px;
   cursor: pointer;
 }
 
-.theme-toggle button:hover {
-  filter: brightness(1.1);
-}
-
-/* ===== Lock screen ===== */
+/* ==============================
+   Lock Screen
+============================== */
 .screen-lock {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top, #0f172a, #020617 55%, #000000);
+  background: radial-gradient(circle at top, #1c2a44, #0a0f19);
+  background-image: url("/assets/img/snow-bg.png");
+  background-size: cover;
 }
 
 .lock-inner {
   text-align: center;
-  color: #f9fafb;
+  color: #fafafa;
 }
 
 .lock-time {
-  font-size: clamp(64px, 10vw, 80px);
+  font-size: clamp(60px, 10vw, 80px);
   font-weight: 300;
-  line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 18px rgba(255,255,255,0.4);
 }
 
 .lock-date {
   font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 24px;
+  opacity: 0.9;
+  margin-bottom: 20px;
 }
 
 .lock-owner {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-bottom: 12px;
+  opacity: 0.9;
+  margin-bottom: 14px;
 }
 
 .lock-hint {
-  font-size: 13px;
-  opacity: 0.85;
-}
-
-.lock-arrow {
-  margin-top: 8px;
-  font-size: 18px;
-  animation: lock-arrow 1.2s ease-in-out infinite;
+  font-size: 12px;
   opacity: 0.9;
 }
 
-@keyframes lock-arrow {
-  0% {
-    transform: translateY(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-6px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 0.7;
-  }
+.lock-arrow {
+  margin-top: 6px;
+  font-size: 20px;
+  animation: lock-arrow 1.2s ease-in-out infinite;
 }
 
-/* ===== Home screen ===== */
+@keyframes lock-arrow {
+  0% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-6px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.7; }
+}
+
+/* Fade transitions */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.7s ease-out;
+}
+
+.fade-hidden {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ==============================
+   Home Screen (Advent)
+============================== */
 .screen-home {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top, #1e293b, #020617 60%);
+  background: radial-gradient(circle at top, #142030, #060a12 55%, #020307);
+  position: relative;
+}
+
+.christmas-home {
+  background:
+    radial-gradient(circle at top, rgba(255,0,0,0.2), rgba(0,60,40,0.4)),
+    url("/assets/img/snow-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .home-inner {
   width: min(900px, 100%);
-  padding: 32px 16px 40px;
+  padding: 30px 16px 40px;
 }
 
 .home-header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 18px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .home-title {
-  font-size: 15px;
-  opacity: 0.9;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff8f8;
+  text-shadow: 0 0 12px rgba(255,200,200,0.4);
 }
 
-/* Icon grid */
+/* ==============================
+   Icon Grid
+============================== */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 20px;
   justify-items: center;
 }
 
-/* ===== iOS風アイコン（画像＋下にラベル） ===== */
+/* Icon Card */
 .icon-card {
-  width: 96px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: inherit;
-  text-align: center;
+  color: #fff;
+  cursor: pointer;
 }
 
-.icon-image-wrapper {
-  width: 64px;
-  height: 64px;
+.christmas-wrapper {
+  width: 70px;
+  height: 70px;
   border-radius: 22%;
   overflow: hidden;
-  background: radial-gradient(circle at top left, #4f46e5, #111827);
+
+  background: radial-gradient(circle at top left,
+      #ff4d4d,
+      #750000);
   box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(148, 163, 184, 0.5) inset;
+    0 10px 24px rgba(0,0,0,0.5),
+    0 0 0 2px rgba(255,255,255,0.4) inset,
+    0 0 18px rgba(255, 200, 200, 0.4);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(16px);
-  transition:
-    transform 0.16s ease-out,
-    box-shadow 0.16s ease-out,
-    filter 0.16s ease-out;
+
+  transition: transform .15s ease-out, box-shadow .15s ease-out;
+}
+
+.icon-card:hover .christmas-wrapper {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 18px 34px rgba(0,0,0,0.65),
+    0 0 0 2px rgba(255,250,240,0.9) inset,
+    0 0 22px rgba(255,200,200,1);
 }
 
 .icon-image {
-  width: 270%;
-  height: 270%;
+  width: 260%;
+  height: 260%;
   object-fit: cover;
-}
-
-.icon-card:hover .icon-image-wrapper {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow:
-    0 16px 32px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(248, 250, 252, 0.8) inset;
-  filter: brightness(1.05);
 }
 
 .icon-title {
   margin-top: 6px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .icon-sub {
-  margin-top: 2px;
-  font-size: 10px;
-  opacity: 0.7;
+  font-size: 11px;
+  opacity: 0.85;
 }
 
-/* App open animation */
-.icon-card.app-link.opening .icon-image-wrapper {
-  transform: scale(0.94);
-  filter: brightness(1.15);
+/* ===== 日付ロック ===== */
+.icon-card.locked {
+  filter: grayscale(90%);
+  opacity: 0.4;
+  pointer-events: auto;
 }
 
-/* Dock 用に少し小さめ */
-.icon-card.small {
-  width: 72px;
+.icon-card.locked:hover .christmas-wrapper {
+  transform: none;
+  box-shadow: none;
 }
 
-.icon-card.small .icon-image-wrapper {
-  width: 54px;
-  height: 54px;
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(248, 250, 252, 0.7) inset;
-}
-
-/* Dock */
-.dock {
-  margin-top: 26px;
-  padding: 10px 18px;
-  border-radius: 26px;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(22px);
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(148, 163, 184, 0.6) inset;
+/* ==============================
+   Password Modal
+============================== */
+.password-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
   display: flex;
-  justify-content: center;
-  gap: 14px;
+  justify-content:center;
+  align-items:center;
+  z-index: 99;
 }
 
-/* ===== Overview screen ===== */
-.screen-overview {
-  background: radial-gradient(circle at top, #020617, #020617 60%, #020617);
-  color: #e5e7eb;
+.password-modal.hidden {
+  display: none;
 }
 
-.home {
-  width: min(980px, 100%);
-  margin: 0 auto;
-  padding: 72px 16px 64px;
-}
-
-/* Hero */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
-  gap: 18px;
-  margin-bottom: 24px;
-  padding: 18px 20px 20px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
-  backdrop-filter: blur(22px);
+.password-modal-inner {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(240,240,240,0.95));
+  width: 90%;
+  max-width: 360px;
+  padding: 22px 20px 26px;
+  border-radius: 20px;
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(148, 163, 184, 0.6) inset;
-}
-
-.hero-name {
-  margin: 0 0 6px;
-  font-size: clamp(26px, 4vw, 32px);
-  letter-spacing: 0.02em;
-}
-
-.hero-tagline {
-  margin: 0 0 6px;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.hero-sub {
-  margin: 0;
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-.hero-meta {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 12px;
-}
-
-.hero-meta-item .label {
-  display: inline-block;
-  opacity: 0.6;
-  margin-right: 4px;
-}
-
-.hero-meta-item .value {
-  display: block;
-  font-weight: 500;
-}
-
-/* Sections / cards */
-.section {
-  margin-bottom: 32px;
-}
-
-.section-title {
-  margin: 0 0 14px;
-  font-size: 20px;
-}
-
-.section-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.section-body.two-col {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-  gap: 16px;
-}
-
-.card {
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(30, 64, 175, 0.6) inset;
-  font-size: 13px;
-}
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
-
-.card p {
-  margin-top: 0;
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-/* ===== Info list (About profile) ===== */
-.info-list {
-  margin: 0;
-  padding: 0;
-}
-
-.info-list > div {
-  display: grid;
-  grid-template-columns: 90px minmax(0, 1fr);
-  column-gap: 10px;
-  row-gap: 2px;
-  margin-bottom: 6px;
-}
-
-.info-list dt {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-.info-list dd {
-  margin: 0;
-  font-size: 13px;
-}
-
-/* ===== Publications list ===== */
-.pub-list {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.pub-list li + li {
-  margin-top: 4px;
-}
-
-/* ===== Home button (back to home screen) ===== */
-.section-home-button {
-  margin-top: 8px;
+    0 18px 36px rgba(0,0,0,0.45),
+    0 0 0 2px rgba(255,60,60,0.4) inset;
   text-align: center;
 }
 
-.home-button {
-  /* 横長ピル型ホームボタン */
-  width: 120px;
-  height: 48px;
-  border-radius: 999px;
-  border: 2px solid rgba(148, 163, 184, 0.9);
-  background: radial-gradient(circle at 30% 30%, #111827, #020617);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(15, 23, 42, 0.9) inset;
-  cursor: pointer;
-  display: inline-block;
+.password-modal-inner h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #aa0000;
 }
 
-/* 押した感のアニメーション */
-.home-button:active {
-  transform: scale(0.96);
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(15, 23, 42, 0.9) inset;
+.modal-instruction {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 14px;
 }
 
-/* ===== Blog list ===== */
-.blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.modal-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 2px solid #ccaaaa;
+  outline: none;
+  margin-top: 6px;
 }
 
-.blog-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.modal-input:focus {
+  border-color: #ee3b3b;
+  box-shadow: 0 0 0 3px rgba(255,110,110,0.3);
 }
 
-.blog-item-title {
+.modal-error {
+  color: #c40000;
   font-size: 13px;
+  margin-top: 6px;
+}
+
+.modal-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-cancel,
+.btn-ok {
+  width: 48%;
+  padding: 10px 0;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
+  border: none;
 }
 
-.blog-item-meta {
-  font-size: 11px;
-  opacity: 0.7;
+.btn-cancel {
+  background: #ddd;
+  color: #333;
 }
 
-/* Misc text helpers */
-.muted {
-  opacity: 0.7;
-  font-size: 12px;
+.btn-ok {
+  background: #d62c2c;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(200,0,0,0.35);
 }
 
-/* Links */
-a {
-  color: #93c5fd;
+.btn-ok:hover {
+  background: #ff3c3c;
 }
 
-a:hover {
-  text-decoration: underline;
+/* ===== 鍵が開くアニメーション ===== */
+.unlock-animation {
+  animation: unlock 0.6s ease-out forwards;
 }
 
-/* Scroll-to-top button */
+@keyframes unlock {
+  0% { transform: scale(1) rotate(0); opacity: 1; }
+  40% { transform: scale(1.15) rotate(10deg); }
+  80% { transform: scale(0.9) rotate(-4deg); opacity: 1; }
+  100% { transform: scale(0.8) rotate(0deg); opacity: 0; }
+}
+
+/* ==============================
+   Gift Page
+============================== */
+.gift-screen {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(220,0,0,0.2), rgba(0,50,40,0.5)),
+    url("/assets/img/snow-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.gift-screen h1 {
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #fff4f4;
+  text-shadow: 0 0 15px rgba(255,180,180,0.8);
+}
+
+.gift-image {
+  width: min(90%, 360px);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.6),
+    0 0 0 2px rgba(255,255,255,0.5) inset;
+}
+
+/* ===== BGM ボタン ===== */
+.bgm-button {
+  margin-top: 20px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: none;
+  background: #d63939;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.bgm-button:hover {
+  background: #ff5050;
+}
+
+/* ==============================
+   Snow Animation
+============================== */
+.snow-container {
+  position: fixed;
+  pointer-events: none;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.snow {
+  position: absolute;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px #fff);
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0.3; }
+}
+
+/* ==============================
+   Scroll To Top
+============================== */
 .to-top {
   position: fixed;
   right: 16px;
@@ -565,174 +519,249 @@ a:hover {
   width: 32px;
   height: 32px;
   border-radius: 999px;
-  border: none;
-  cursor: pointer;
+  border:none;
+  cursor:pointer;
   font-size: 18px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
+  background: rgba(255,255,255,0.15);
+  color:white;
   box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(148, 163, 184, 0.8) inset;
-  backdrop-filter: blur(14px);
+    0 10px 24px rgba(0,0,0,0.6),
+    0 0 0 2px rgba(255,255,255,0.4) inset;
+  backdrop-filter: blur(10px);
   display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 }
 
-/* ===== Light theme overrides ===== */
-
-body.theme-light {
-  background: radial-gradient(circle at top, #e0ecff, #f9fafb 60%, #f3f4f6);
-  color: #111827;
-}
-
-/* ステータスバーを明るく */
-body.theme-light .status-bar {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.96),
-    rgba(248, 250, 252, 0.9)
-  );
-  color: #111827;
-  box-shadow:
-    0 1px 0 rgba(148, 163, 184, 0.35) inset,
-    0 1px 6px rgba(15, 23, 42, 0.2);
-}
-
-body.theme-light .battery-body {
-  border-color: rgba(15, 23, 42, 0.7);
-}
-
-body.theme-light .battery-tip {
-  border-color: rgba(15, 23, 42, 0.7);
-}
-
-body.theme-light .lang-toggle {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(148, 163, 184, 0.9);
-}
-
-body.theme-light .lang-toggle button {
-  color: #111827;
-}
-
-body.theme-light .lang-toggle button.active {
-  background: rgba(37, 99, 235, 0.12);
-  color: #1d4ed8;
-}
-
-/* テーマトグルも明るく */
-body.theme-light .theme-toggle button {
-  background: rgba(248, 250, 252, 0.95);
-  color: #111827;
-}
-
-/* ロック画面をライト寄りに */
-body.theme-light .screen-lock {
-  background: radial-gradient(circle at top, #dbeafe, #e5e7eb 55%, #d1d5db);
-  color: #111827;
-}
-
-/* ホーム画面背景を明るく */
-body.theme-light .screen-home {
-  background: radial-gradient(circle at top, #dbeafe, #e5e7eb 60%);
-}
-
-/* オーバービュー背景を明るく */
-body.theme-light .screen-overview {
-  background: radial-gradient(circle at top, #eff6ff, #f9fafb 60%, #e5e7eb);
-  color: #111827;
-}
-
-/* 画像アイコン（ライトテーマ） */
-body.theme-light .icon-image-wrapper {
-  background: radial-gradient(circle at top left, #ffffff, #dbeafe);
-  box-shadow:
-    0 8px 18px rgba(15, 23, 42, 0.25),
-    0 0 0 1px rgba(148, 163, 184, 0.6) inset;
-}
-
-body.theme-light .icon-card.small .icon-image-wrapper {
-  box-shadow:
-    0 6px 16px rgba(15, 23, 42, 0.2),
-    0 0 0 1px rgba(148, 163, 184, 0.7) inset;
-}
-
-/* Dock */
-body.theme-light .dock {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow:
-    0 8px 20px rgba(148, 163, 184, 0.7),
-    0 0 0 1px rgba(209, 213, 219, 0.9) inset;
-}
-
-/* 概要画面のカード／ヒーロー */
-body.theme-light .hero {
-  background: linear-gradient(135deg, #ffffff, #e5e7eb);
-  box-shadow:
-    0 16px 40px rgba(148, 163, 184, 0.5),
-    0 0 0 1px rgba(209, 213, 219, 0.9) inset;
-}
-
-body.theme-light .card {
-  background: #ffffff;
-  box-shadow:
-    0 10px 26px rgba(148, 163, 184, 0.5),
-    0 0 0 1px rgba(209, 213, 219, 0.9) inset;
-}
-
-/* ホームボタン（ライトテーマ） */
-body.theme-light .home-button {
-  background: radial-gradient(circle at 30% 30%, #f9fafb, #e5e7eb);
-  border-color: rgba(148, 163, 184, 0.9);
-  box-shadow:
-    0 6px 16px rgba(148, 163, 184, 0.7),
-    0 0 0 1px rgba(209, 213, 219, 0.9) inset;
-}
-
-/* リンク色 */
-body.theme-light a {
-  color: #2563eb;
-}
-
-/* to-top ボタンも明るく */
-body.theme-light .to-top {
-  background: rgba(248, 250, 252, 0.95);
-  color: #111827;
-  box-shadow:
-    0 10px 24px rgba(148, 163, 184, 0.8),
-    0 0 0 1px rgba(209, 213, 219, 0.9) inset;
-}
-
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 720px) {
-  .home {
-    padding-top: 60px;
+  .home-title {
+    font-size: 18px;
   }
-
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
+  .icon-card {
+    width: 90px;
   }
-
-  .section-body.two-col {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .dock {
-    justify-content: space-between;
-  }
-
-  .status-bar {
-    font-size: 11px;
-  }
-
-  .lang-toggle button {
-    padding: 2px 4px;
-  }
-
-  .home-button {
-    width: 96px;
-    height: 40px;
+  .christmas-wrapper {
+    width: 64px;
+    height: 64px;
   }
 }
+
+/* ===========================================================
+   🎁 QUEST PAGE — Bingo Layout
+   (追記用 CSS)
+=========================================================== */
+
+/* Quest container */
+.quest-container {
+  width: min(900px, 95%);
+  margin: 0 auto;
+  padding: 40px 0 100px;
+  text-align: center;
+  color: #fffdfd;
+}
+
+.quest-title {
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(255,200,200,0.8);
+}
+
+.quest-sub {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------
+   Bingo Grid (7x7)
+-------------------------------- */
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 行ヘッダ＋7列 */
+  gap: 4px;
+  margin: 0 auto 25px;
+  width: min(520px, 95%);
+}
+
+.grid-header {
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  color: #ffe7e7;
+  padding: 6px 0;
+}
+
+.cell {
+  width: 100%;
+  padding-bottom: 100%; /* 正方形比維持 */
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.cell::after {
+  content: attr(data-id);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 11px;
+  opacity: 0.2;
+  color: #fff;
+}
+
+/* 赤く光るマス */
+.cell-glow {
+  background: rgba(255, 80, 80, 0.25);
+  box-shadow:
+    0 0 15px rgba(255,60,60,0.8),
+    0 0 25px rgba(255,80,80,0.6);
+}
+
+/* -------------------------------
+   9 Hints Grid
+-------------------------------- */
+.hint-title {
+  margin-top: 26px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  text-shadow: 0 0 6px rgba(255,180,180,0.7);
+}
+
+.hint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: min(300px, 90%);
+  margin: 0 auto;
+}
+
+.hint-cell {
+  padding: 10px 0;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  font-size: 13px;
+  color: #ffeaea;
+  opacity: 0.9;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.hint-sub {
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* -------------------------------
+   Answer button
+-------------------------------- */
+.quest-button {
+  margin-top: 28px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #c53030;
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(160,0,0,0.4);
+}
+
+.quest-button:hover {
+  background: #ff4444;
+}
+
+
+/* ===========================================================
+   🎅 Calendar Progress Meter (18〜25)
+=========================================================== */
+
+.calendar-progress-section {
+  margin-top: 60px;
+  padding: 40px 10px 80px;
+  text-align: center;
+  color: white;
+  background: rgba(255,255,255,0.05);
+  border-radius: 22px;
+  width: min(900px, 95%);
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+    0 0 22px rgba(0,0,0,0.4),
+    0 0 0 2px rgba(255,255,255,0.15) inset;
+}
+
+.calendar-title {
+  font-size: 22px;
+  margin-bottom: 18px;
+  text-shadow: 0 0 12px rgba(255,200,200,0.7);
+}
+
+/* Progress bar track */
+.calendar-track {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  margin: 20px auto 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.12);
+  overflow: visible;
+}
+
+/* Reindeer & Santa icons */
+.reindeer,
+.santa {
+  position: absolute;
+  top: -28px;
+  width: 38px;
+  height: auto;
+  transition: left 0.8s ease-out;
+}
+
+/* Santa is ahead of Reindeer */
+.reindeer { left: 0%; }
+.santa { left: 10%; }
+
+/* Days span */
+.calendar-days {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 8px auto 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.final-25 {
+  color: #ffd6d6;
+  font-weight: bold;
+}
+
+/* ===== 大きな日付 & タイトル ===== */
+.big-date {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 0 0 14px rgba(255,255,255,0.7);
+}
+
+.big-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255,220,220,0.8);
+}
+
+/* ===== 進行サンタ大きめ ===== */
+.santa, .reindeer {
+  width: 80px !important;
+  height: auto;
+  position: absolute;
+  top: -40px;
+}
+
+/* 距離感（サンタ左・トナカイ右に寄せる） */
+.santa { z-index: 3; }
+.reindeer { z-index: 2; }

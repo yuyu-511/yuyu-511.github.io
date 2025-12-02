@@ -3,54 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="xpCX_a_-YL4ySDV200mcZJMXzPFNYfxY-ZSpz4uDc0I" />
 
-  {%- comment -%}
-  メタタイトル＆ディスクリプション
-  - 各ページの front matter の title / description を優先
-  - なければデフォルトのポートフォリオ用文言を使う
-  {%- endcomment -%}
-  {% assign meta_title = page.title | default: "原田悠矢 | NLP / AI 人狼(AIWolf)・自然言語処理 ポートフォリオ" %}
-  {% assign meta_description = page.description | default: site.description | default: "原田悠矢（はらだ ゆうや）のポートフォリオサイト。静岡大学 情報学部 狩野研究室で自然言語処理（NLP）・AI 人狼（AIWolf）・対話システムの研究を行っています。" %}
+  {% assign meta_title = page.title | default: "🎄 Christmas Advent Calendar | yuyu-511" %}
+  {% assign meta_description = page.description | default: "クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" %}
 
   <title>{{ meta_title }}</title>
   <meta name="description" content="{{ meta_description | escape }}" />
-
-  {%- comment -%}
-  canonical URL
-  {%- endcomment -%}
-  <link rel="canonical" href="{{ page.url | absolute_url }}" />
-
-  {%- comment -%}
-  OGP / Twitter カード
-  {%- endcomment -%}
-  <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}" />
   <meta property="og:title" content="{{ meta_title }}" />
   <meta property="og:description" content="{{ meta_description | escape }}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:site_name" content="原田悠矢 ポートフォリオ" />
-
-  {% if page.og_image %}
-    <meta property="og:image" content="{{ page.og_image | absolute_url }}" />
-  {% elsif site.og_image %}
-    <meta property="og:image" content="{{ site.og_image | absolute_url }}" />
-  {% endif %}
-
-  <meta name="twitter:card" content="summary" />
-  {% if site.twitter_username %}
-    <meta name="twitter:site" content="@{{ site.twitter_username }}" />
-  {% endif %}
 
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
-<body class="lang-en theme-dark">
+
+<body class="lang-en theme-dark christmas-mode">
+
   {% include status-bar.html %}
 
-  <main class="{{ page.main_class | default: 'screen screen-overview' }}">
+  <main class="{{ page.main_class | default: 'screen screen-home' }}">
     {{ content }}
     <button class="to-top" aria-label="Scroll to top">⌃</button>
   </main>
 
+  <script src="/assets/js/snow.js"></script>
   <script src="/assets/js/main.js"></script>
 </body>
 </html>

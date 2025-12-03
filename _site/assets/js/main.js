@@ -1,5 +1,6 @@
 /* ================================================
-   Christmas — main.js（実質ロック解除だけ）
+   Christmas — main.js
+   ロック画面 → ホーム画面（タップ & スワイプでスクロール）
 ================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,15 +9,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!lock || !home) return;
 
-  const unlock = () => {
-    lock.classList.add("fade-out");
-    setTimeout(() => {
-      lock.style.display = "none";
-      home.classList.remove("fade-hidden");
-      home.classList.add("fade-in");
-    }, 600);
+  let startY = null;
+  const SWIPE_THRESHOLD = 40; // 上方向に 40px 以上でスワイプとみなす
+
+  // ホーム画面へスクロールする共通処理
+  const scrollToHome = () => {
+    home.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  lock.addEventListener("click", unlock);
-  lock.addEventListener("touchstart", unlock);
+  /* ===== タップでホームへ ===== */
+  lock.addEventListener("click", () => {
+    scrollToHome();
+  });
+
+  /* ===== スワイプアップでホームへ ===== */
+  lock.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    startY = e.touches[0].clientY;
+  });
+
+  lock.addEventListener("touchmove", (e) => {
+    if (startY === null) return;
+
+    const currentY = e.touches[0].clientY;
+    const diffY = startY - currentY; // 上に動くと +
+
+    if (diffY > SWIPE_THRESHOLD) {
+      scrollToHome();
+      startY = null;
+    }
+  });
+
+  lock.addEventListener("touchend", () => {
+    startY = null;
+  });
+
+  lock.addEventListener("touchcancel", () => {
+    startY = null;
+  });
 });

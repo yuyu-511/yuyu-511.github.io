@@ -18,13 +18,15 @@
 <body class="lang-en theme-dark christmas-mode">
 
   <div class="status-bar christmas-bar">
-  <div class="status-left">
-    <span id="status-time">9:41</span>
-  </div>
+  <div class="status-inner">
+    <div class="status-left">
+      <span class="status-logo">🎄</span>
+      <span class="status-title">1 Week Advent Calendar</span>
+    </div>
 
-  <div class="status-center">
-    🎄 1 Week Advent Calendar
-  </div>
+    <div class="status-right">
+      <span id="status-date" class="status-date"></span>
+      <span id="status-countdown" class="status-countdown"></span>
     </div>
   </div>
 </div>
@@ -59,7 +61,7 @@
 <!-- ===========================
        Screen 2: Home Screen
 =========================== -->
-<section id="home-screen" class="screen screen-home christmas-home fade-hidden">
+<section id="home-screen" class="screen screen-home christmas-home">
   <div class="home-inner">
 
     <div class="home-header">
@@ -67,75 +69,81 @@
     </div>
 
     <!-- ===== Icon Grid ===== -->
-<div class="icon-grid christmas-icons">
+    <div class="icon-grid christmas-icons">
 
-  <!-- すべてロック解除状態だが class="locked" は残す（JSで切替可能） -->
-  <div class="icon-card app-link" data-day="1" onclick="tryOpenDay(1)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day1.png" class="icon-image" alt="Day 1">
+      <!-- Day 1 -->
+      <div class="icon-card app-link" data-day="1" onclick="tryOpenDay(1)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day1.png" class="icon-image" alt="Day 1">
+        </div>
+        <div class="icon-title">Day 1</div>
+        <div class="icon-sub">Dec 18</div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="icon-card app-link" data-day="2" onclick="tryOpenDay(2)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day2.png" class="icon-image" alt="Day 2">
+        </div>
+        <div class="icon-title">Day 2</div>
+        <div class="icon-sub">Dec 19</div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="icon-card app-link" data-day="3" onclick="tryOpenDay(3)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day3.png" class="icon-image" alt="Day 3">
+        </div>
+        <div class="icon-title">Day 3</div>
+        <div class="icon-sub">Dec 20</div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="icon-card app-link" data-day="4" onclick="tryOpenDay(4)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day4.png" class="icon-image" alt="Day 4">
+        </div>
+        <div class="icon-title">Day 4</div>
+        <div class="icon-sub">Dec 21</div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="icon-card app-link" data-day="5" onclick="tryOpenDay(5)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day5.png" class="icon-image" alt="Day 5">
+        </div>
+        <div class="icon-title">Day 5</div>
+        <div class="icon-sub">Dec 22</div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="icon-card app-link" data-day="6" onclick="tryOpenDay(6)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day6.png" class="icon-image" alt="Day 6">
+        </div>
+        <div class="icon-title">Day 6</div>
+        <div class="icon-sub">Dec 23</div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="icon-card app-link" data-day="7" onclick="tryOpenDay(7)">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/day7.png" class="icon-image" alt="Day 7">
+        </div>
+        <div class="icon-title">Day 7</div>
+        <div class="icon-sub">Dec 24</div>
+      </div>
+
+      <!-- Quest -->
+      <div class="icon-card app-link" onclick="location.href='quest/index.html'">
+        <div class="icon-image-wrapper christmas-wrapper">
+          <img src="assets/img/icons/quest.png" class="icon-image" alt="Quest">
+        </div>
+        <div class="icon-title">Quest</div>
+        <div class="icon-sub">Secret</div>
+      </div>
+
     </div>
-    <div class="icon-title">Day 1</div>
-    <div class="icon-sub">Dec 18</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="2" onclick="tryOpenDay(2)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day2.png" class="icon-image" alt="Day 2">
-    </div>
-    <div class="icon-title">Day 2</div>
-    <div class="icon-sub">Dec 19</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="3" onclick="tryOpenDay(3)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day3.png" class="icon-image" alt="Day 3">
-    </div>
-    <div class="icon-title">Day 3</div>
-    <div class="icon-sub">Dec 20</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="4" onclick="tryOpenDay(4)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day4.png" class="icon-image" alt="Day 4">
-    </div>
-    <div class="icon-title">Day 4</div>
-    <div class="icon-sub">Dec 21</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="5" onclick="tryOpenDay(5)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day5.png" class="icon-image" alt="Day 5">
-    </div>
-    <div class="icon-title">Day 5</div>
-    <div class="icon-sub">Dec 22</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="6" onclick="tryOpenDay(6)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day6.png" class="icon-image" alt="Day 6">
-    </div>
-    <div class="icon-title">Day 6</div>
-    <div class="icon-sub">Dec 23</div>
-  </div>
-
-  <div class="icon-card app-link" data-day="7" onclick="tryOpenDay(7)">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/day7.png" class="icon-image" alt="Day 7">
-    </div>
-    <div class="icon-title">Day 7</div>
-    <div class="icon-sub">Dec 24</div>
-  </div>
-
-  <!-- Quest アイコン -->
-  <div class="icon-card app-link" onclick="location.href='/quest/index.html'">
-    <div class="icon-image-wrapper christmas-wrapper">
-      <img src="/assets/img/icons/quest.png" class="icon-image" alt="Quest">
-    </div>
-    <div class="icon-title">Quest</div>
-    <div class="icon-sub">Secret</div>
-  </div>
-
-</div>
 
   </div>
 </section>
@@ -144,22 +152,23 @@
 <!-- ===========================
        Advent Calendar Progress
 =========================== -->
-<section id="calendar-progress" class="calendar-progress-section">
+<section id="calendar-progress" class="screen screen-progress">
+  <div class="calendar-progress-section">
 
-  <h2 class="calendar-title">🎅 Santa Journey to Christmas</h2>
+    <h2 class="calendar-title">🎅 Santa Journey to Christmas</h2>
 
-  <div class="calendar-track">
-    <!-- ★ サンタ＆トナカイを 1枚画像に変更 ★
-         ※ .calendar-track は CSS で position: relative; にしておくと吉 -->
-    <img src="/assets/img/santa_reindeer.png" class="santa-reindeer">
+    <div class="calendar-track">
+      <!-- ★ サンタ＆トナカイを 1枚画像に変更 ★ -->
+      <img src="assets/img/santa_reindeer.png" class="santa-reindeer">
+    </div>
+
+    <div class="calendar-days">
+      <span>18</span><span>19</span><span>20</span>
+      <span>21</span><span>22</span><span>23</span>
+      <span>24</span><span class="final-25">25</span>
+    </div>
+
   </div>
-
-  <div class="calendar-days">
-    <span>18</span><span>19</span><span>20</span>
-    <span>21</span><span>22</span><span>23</span>
-    <span>24</span><span class="final-25">25</span>
-  </div>
-
 </section>
 
 
@@ -200,7 +209,7 @@ const PASSCODES = {
    ★ ここを true にするとロック機能 ON
    ★ false にするとすべて OFF（自由に見られる）
 */
-const LOCK_ENABLED = false;
+const LOCK_ENABLED = true;
 
 /* ====== 日付ロック（ON/OFF対応） ====== */
 const DAY_UNLOCK = {1:18, 2:19, 3:20, 4:21, 5:22, 6:23, 7:24};
@@ -216,10 +225,25 @@ function tryOpenDay(day) {
   const m = now.getMonth() + 1;
   const d = now.getDate();
 
-  if (m === 12 && d >= DAY_UNLOCK[day]) {
+  const unlockDay = DAY_UNLOCK[day];
+
+  // まだ解禁日が設定されてない日が押されたときの保険
+  if (!unlockDay) {
+    alert("この日はまだ準備中だよ 🎁");
+    return;
+  }
+
+  if (m === 12 && d >= unlockDay) {
+    // ✅ 解禁日以降 → パスコード入力へ
     openPasswordModal(day);
   } else {
-    alert(`まだ開けないよ ❄\n解禁日: 12/${DAY_UNLOCK[day]}`);
+    // ❌ まだ解禁前 → 「まだ○月×日じゃないよ」メッセージ
+    const todayStr = `${m}月${d}日`;
+    const unlockStr = `12月${unlockDay}日`;
+
+    alert(
+      `今日は ${todayStr} ！まだ ${unlockStr} じゃないから開けないよっ ❄\n\n`
+    );
   }
 }
 
@@ -257,15 +281,57 @@ function submitPasscode() {
 /* ====== ロック画面の日付表示 & サンタ進行 ====== */
 document.addEventListener("DOMContentLoaded", () => {
   const now = new Date();
-  document.getElementById("big-date").textContent =
-    `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()}`;
 
-  /* サンタ＆トナカイ（1枚画像）の進行 */
+  /* ===== ロック画面の大きな日付 ===== */
+  const bigDate = document.getElementById("big-date");
+  if (bigDate) {
+    bigDate.textContent =
+      `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+  }
+
+  /* ===== ヘッダーの日付 & カウントダウン ===== */
+  const statusDateEl = document.getElementById("status-date");
+  const statusCountdownEl = document.getElementById("status-countdown");
+
+  if (statusDateEl) {
+    // 例: 2024/12/18 (Wed)
+    const weekdayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const w = weekdayNames[now.getDay()];
+    statusDateEl.textContent =
+      `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} (${w})`;
+  }
+
+  if (statusCountdownEl) {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const thisYear = now.getFullYear();
+    const christmas = new Date(thisYear, 11, 25); // 11 = December
+
+    let diffDays = Math.ceil((christmas - now) / msPerDay);
+
+    // もし 12/26 以降なら、次の年のクリスマスまで
+    if (diffDays < 0) {
+      const nextChristmas = new Date(thisYear + 1, 11, 25);
+      diffDays = Math.ceil((nextChristmas - now) / msPerDay);
+    }
+
+    if (diffDays === 0) {
+      statusCountdownEl.textContent = "🎁 Today is Christmas!";
+    } else {
+      statusCountdownEl.textContent = `Christmasまであと ${diffDays}日！楽しみだね⸜(  ᷇࿀ ᷆  )⸝`;
+    }
+  }
+
+  /* ===== サンタ＆トナカイ（1枚画像）の進行 ===== */
   const d = now.getDate();
   const min = 18;
   const max = 25;
   const progress = Math.min(Math.max(d, min), max);
-  const percent = ((progress - min) / (max - min)) * 100;
+
+  const santaBasePercent = ((progress - min) / (max - min)) * 100;
+
+  // ★ 調整ポイント
+  const SANTA_OFFSET_PERCENT = -5;  // 左右（%）
+  const SANTA_OFFSET_TOP = -70;      // 上下（px）
 
   const santaReindeer = document.querySelector(".santa-reindeer");
 
@@ -273,13 +339,9 @@ document.addEventListener("DOMContentLoaded", () => {
     santaReindeer.style.width = "80px";
     santaReindeer.style.position = "absolute";
 
-    // 横方向：日付に応じて左→右へ
-    santaReindeer.style.left = `${percent}%`;
-
-    // 縦方向：トラックの高さの中央あたりに配置して、少しだけ上寄せ
-    santaReindeer.style.top = "50%";
-    santaReindeer.style.transform = "translate(-50%, -70%)";
-    // ↑ もっと上にしたければ -60% や -65% に調整してOK
+    santaReindeer.style.left = `${santaBasePercent + SANTA_OFFSET_PERCENT}%`;
+    santaReindeer.style.top = `calc(50% + ${SANTA_OFFSET_TOP}px)`;
+    santaReindeer.style.transform = "translateX(-50%)";
   }
 });
 </script>

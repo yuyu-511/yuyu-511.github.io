@@ -61,34 +61,84 @@ body.lang-ja [data-lang="en"] {
 }
 
 /* ==============================
-   Status Bar
+   Status Bar (Header style)
 ============================== */
 .status-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 32px;
-  padding: 4px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
   z-index: 40;
+
+  /* 高さは auto にしてパディングで調整 */
+  padding: 10px 16px;
 
   background: linear-gradient(
     to bottom,
-    rgba(200, 0, 0, 0.85),
-    rgba(180, 0, 0, 0.65)
+    rgba(200, 0, 0, 0.9),
+    rgba(160, 0, 0, 0.75)
   );
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 
   color: #fff7f7;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.1) inset,
-    0 2px 8px rgba(0, 0, 0, 0.35);
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
+/* 中身を左右に配置 */
+.status-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 左側：ロゴ＋タイトル */
+.status-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-logo {
+  font-size: 18px;
+}
+
+.status-title {
+  /* ちょっときれいめ＆太め */
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system,
+    system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+
+/* 右側：日付＆カウントダウン */
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.status-date {
+  font-weight: 500;
+}
+
+.status-countdown {
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* 旧スタイルを使っていたものは不要になるので空にしておく */
 .status-center span,
 .status-center {
   font-weight: 600;
@@ -97,6 +147,13 @@ body.lang-ja [data-lang="en"] {
 
 .status-icon {
   font-size: 14px;
+}
+
+/* 画面全体の上余白も少しだけ増やすとバランス良いかも */
+.screen {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 56px; /* もともと 40px → ヘッダー分ちょい増し */
 }
 
 /* Battery */
@@ -272,27 +329,21 @@ body.lang-ja [data-lang="en"] {
   border-radius: 22%;
   overflow: hidden;
 
-  background: radial-gradient(circle at top left,
-      #ff4d4d,
-      #750000);
-  box-shadow:
-    0 10px 24px rgba(0,0,0,0.5),
-    0 0 0 2px rgba(255,255,255,0.4) inset,
-    0 0 18px rgba(255, 200, 200, 0.4);
+  /* ★ 赤ふち・影なしにする ★ */
+  background: none;
+  box-shadow: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: transform .15s ease-out, box-shadow .15s ease-out;
+  transition: transform .15s ease-out;
 }
 
 .icon-card:hover .christmas-wrapper {
+  /* ふちは付けず、ちょっとだけ浮かせる */
   transform: translateY(-4px) scale(1.05);
-  box-shadow:
-    0 18px 34px rgba(0,0,0,0.65),
-    0 0 0 2px rgba(255,250,240,0.9) inset,
-    0 0 22px rgba(255,200,200,1);
+  box-shadow: none;
 }
 
 .icon-image {
@@ -678,24 +729,36 @@ body.lang-ja [data-lang="en"] {
    🎅 Calendar Progress Meter (18〜25)
 =========================================================== */
 
+/* 画面としてのレイアウト（ロック画面・ホームと同じスケール） */
+.screen-progress {
+  min-height: 100vh;                 /* 1画面分の高さ */
+  display: flex;
+  align-items: center;               /* 縦方向センター */
+  justify-content: center;           /* 横方向センター */
+  padding: 40px 16px 60px;
+  background:
+    radial-gradient(circle at top, rgba(255,0,0,0.2), rgba(0,60,40,0.4)),
+    url("/assets/img/snow-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* 中央に置くカード（メーター本体） */
 .calendar-progress-section {
-  margin-top: 60px;
-  padding: 40px 10px 80px;
   text-align: center;
   color: white;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0, 0, 0, 0.35);
   border-radius: 22px;
   width: min(900px, 95%);
-  margin-left: auto;
-  margin-right: auto;
+  padding: 32px 20px 40px;
   box-shadow:
-    0 0 22px rgba(0,0,0,0.4),
-    0 0 0 2px rgba(255,255,255,0.15) inset;
+    0 0 22px rgba(0,0,0,0.5),
+    0 0 0 2px rgba(255,255,255,0.12) inset;
 }
 
 .calendar-title {
   font-size: 22px;
-  margin-bottom: 18px;
+  margin-bottom: 100px;
   text-shadow: 0 0 12px rgba(255,200,200,0.7);
 }
 
@@ -703,6 +766,7 @@ body.lang-ja [data-lang="en"] {
 .calendar-track {
   position: relative;
   width: 100%;
+  max-width: 600px;        /* メーター自体の横幅は今くらいを維持 */
   height: 12px;
   margin: 20px auto 10px;
   border-radius: 6px;
@@ -710,25 +774,20 @@ body.lang-ja [data-lang="en"] {
   overflow: visible;
 }
 
-/* Reindeer & Santa icons */
-.reindeer,
-.santa {
+/* サンタ＆トナカイ1枚画像 */
+.santa-reindeer {
   position: absolute;
-  top: -28px;
-  width: 38px;
+  width: 80px;
   height: auto;
   transition: left 0.8s ease-out;
 }
 
-/* Santa is ahead of Reindeer */
-.reindeer { left: 0%; }
-.santa { left: 10%; }
-
-/* Days span */
+/* 日付ラベル */
 .calendar-days {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  max-width: 600px;
   margin: 8px auto 0;
   font-size: 13px;
   opacity: 0.85;
@@ -765,3 +824,36 @@ body.lang-ja [data-lang="en"] {
 /* 距離感（サンタ左・トナカイ右に寄せる） */
 .santa { z-index: 3; }
 .reindeer { z-index: 2; }
+
+/* ===== Gift page: Back to Home button ===== */
+.gift-back-button {
+  position: fixed;              /* ★ 画面に固定 */
+  left: 50%;                    /* 中央 */
+  bottom: 24px;                 /* 画面の下から少し上 */
+  transform: translateX(-50%);  /* 中心揃え */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  color: #fffdfd;
+  background: rgba(214, 57, 57, 0.96);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+
+  z-index: 100; /* ギフト画像より上に出す */
+}
+
+.gift-back-button:hover {
+  background: #ff5050;
+}

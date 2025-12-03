@@ -7,13 +7,7 @@ main_class: "gift-screen"
 <h1>🎁 Day 4 Gift</h1>
 <img src="/assets/img/gifts/day4.png" class="gift-image">
 
-<button id="play-bgm" class="bgm-button">BGM 🎶</button>
-<audio id="bgm-audio" src="/assets/audio/day4.mp3"></audio>
-
-<script>
-document.getElementById("play-bgm").addEventListener("click", () => {
-  const bgm = document.getElementById("bgm-audio");
-  bgm.volume = 0.5;
-  bgm.play();
-});
-</script>
+<!-- 🔙 ホーム画面に戻るボタン -->
+<a href="{{ '/' | relative_url }}" class="gift-back-button">
+  ⌂ Back to Home
+</a>

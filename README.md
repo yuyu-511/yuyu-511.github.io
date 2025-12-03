@@ -1,6 +1,6 @@
 bundle exec jekyll serve
 
-index.html 173行目
+index.html 183行目
 /* ====== ロック切替スイッチ ======
    ★ ここを true にするとロック機能 ON
    ★ false にするとすべて OFF（自由に見られる）

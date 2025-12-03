@@ -18,13 +18,15 @@
 <body class="lang-en theme-dark christmas-mode">
 
   <div class="status-bar christmas-bar">
-  <div class="status-left">
-    <span id="status-time">9:41</span>
-  </div>
+  <div class="status-inner">
+    <div class="status-left">
+      <span class="status-logo">🎄</span>
+      <span class="status-title">1 Week Advent Calendar</span>
+    </div>
 
-  <div class="status-center">
-    🎄 1 Week Advent Calendar
-  </div>
+    <div class="status-right">
+      <span id="status-date" class="status-date"></span>
+      <span id="status-countdown" class="status-countdown"></span>
     </div>
   </div>
 </div>
@@ -41,17 +43,10 @@
 <!-- 🎁 特別ギフト画像（ファイル名は自由に変更 OK） -->
 <img src="/assets/img/gifts/special.png" class="gift-image" alt="Special Gift">
 
-<!-- 🎵 BGM 再生ボタン -->
-<button id="play-bgm" class="bgm-button">BGM 🎶</button>
-<audio id="bgm-audio" src="/assets/audio/special.mp3"></audio>
-
-<script>
-document.getElementById("play-bgm").addEventListener("click", () => {
-  const bgm = document.getElementById("bgm-audio");
-  bgm.volume = 0.5;
-  bgm.play();
-});
-</script>
+<!-- 🔙 ホーム画面に戻るボタン -->
+<a href="/" class="gift-back-button">
+  ⌂ Back to Home
+</a>
 
 <style>
 .special-sub {

@@ -1,10 +1,37 @@
----
-layout: base
-title: "🎄 Christmas Advent Calendar"
-main_class: "shell"
----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- ===========================
+  
+  
+
+  <title>🎄 Christmas Advent Calendar</title>
+  <meta name="description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+  <meta property="og:title" content="🎄 Christmas Advent Calendar" />
+  <meta property="og:description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body class="lang-en theme-dark christmas-mode">
+
+  <div class="status-bar christmas-bar">
+  <div class="status-left">
+    <span id="status-time">9:41</span>
+  </div>
+
+  <div class="status-center">
+    🎄 1 Week Advent Calendar
+  </div>
+    </div>
+  </div>
+</div>
+
+
+  <main class="shell">
+    <!-- ===========================
        Screen 1: Lock Screen
 =========================== -->
 <section id="lock-screen" class="screen screen-lock christmas-lock">
@@ -45,7 +72,7 @@ main_class: "shell"
   <!-- すべてロック解除状態だが class="locked" は残す（JSで切替可能） -->
   <div class="icon-card app-link" data-day="1" onclick="tryOpenDay(1)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day1.png' | relative_url }}" class="icon-image" alt="Day 1">
+      <img src="/assets/img/icons/day1.png" class="icon-image" alt="Day 1">
     </div>
     <div class="icon-title">Day 1</div>
     <div class="icon-sub">Dec 18</div>
@@ -53,7 +80,7 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="2" onclick="tryOpenDay(2)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day2.png' | relative_url }}" class="icon-image" alt="Day 2">
+      <img src="/assets/img/icons/day2.png" class="icon-image" alt="Day 2">
     </div>
     <div class="icon-title">Day 2</div>
     <div class="icon-sub">Dec 19</div>
@@ -61,7 +88,7 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="3" onclick="tryOpenDay(3)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day3.png' | relative_url }}" class="icon-image" alt="Day 3">
+      <img src="/assets/img/icons/day3.png" class="icon-image" alt="Day 3">
     </div>
     <div class="icon-title">Day 3</div>
     <div class="icon-sub">Dec 20</div>
@@ -69,7 +96,7 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="4" onclick="tryOpenDay(4)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day4.png' | relative_url }}" class="icon-image" alt="Day 4">
+      <img src="/assets/img/icons/day4.png" class="icon-image" alt="Day 4">
     </div>
     <div class="icon-title">Day 4</div>
     <div class="icon-sub">Dec 21</div>
@@ -77,7 +104,7 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="5" onclick="tryOpenDay(5)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day5.png' | relative_url }}" class="icon-image" alt="Day 5">
+      <img src="/assets/img/icons/day5.png" class="icon-image" alt="Day 5">
     </div>
     <div class="icon-title">Day 5</div>
     <div class="icon-sub">Dec 22</div>
@@ -85,7 +112,7 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="6" onclick="tryOpenDay(6)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day6.png' | relative_url }}" class="icon-image" alt="Day 6">
+      <img src="/assets/img/icons/day6.png" class="icon-image" alt="Day 6">
     </div>
     <div class="icon-title">Day 6</div>
     <div class="icon-sub">Dec 23</div>
@@ -93,16 +120,16 @@ main_class: "shell"
 
   <div class="icon-card app-link" data-day="7" onclick="tryOpenDay(7)">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/day7.png' | relative_url }}" class="icon-image" alt="Day 7">
+      <img src="/assets/img/icons/day7.png" class="icon-image" alt="Day 7">
     </div>
     <div class="icon-title">Day 7</div>
     <div class="icon-sub">Dec 24</div>
   </div>
 
   <!-- Quest アイコン -->
-  <div class="icon-card app-link" onclick="location.href='{{ '/quest/index.html' | relative_url }}'">
+  <div class="icon-card app-link" onclick="location.href='/quest/index.html'">
     <div class="icon-image-wrapper christmas-wrapper">
-      <img src="{{ '/assets/img/icons/quest.png' | relative_url }}" class="icon-image" alt="Quest">
+      <img src="/assets/img/icons/quest.png" class="icon-image" alt="Quest">
     </div>
     <div class="icon-title">Quest</div>
     <div class="icon-sub">Secret</div>
@@ -124,7 +151,7 @@ main_class: "shell"
   <div class="calendar-track">
     <!-- ★ サンタ＆トナカイを 1枚画像に変更 ★
          ※ .calendar-track は CSS で position: relative; にしておくと吉 -->
-    <img src="{{ '/assets/img/santa_reindeer.png' | relative_url }}" class="santa-reindeer">
+    <img src="/assets/img/santa_reindeer.png" class="santa-reindeer">
   </div>
 
   <div class="calendar-days">
@@ -256,3 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
+    <button class="to-top" aria-label="Scroll to top">⌃</button>
+  </main>
+
+  <script src="/assets/js/snow.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

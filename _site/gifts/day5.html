@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+
+  <title>Day 5 Gift</title>
+  <meta name="description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+  <meta property="og:title" content="Day 5 Gift" />
+  <meta property="og:description" content="クリスマスアドベントカレンダー（Day 1〜Day 7）。iPhone風デザインの特設ページ。" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body class="lang-en theme-dark christmas-mode">
+
+  <div class="status-bar christmas-bar">
+  <div class="status-left">
+    <span id="status-time">9:41</span>
+  </div>
+
+  <div class="status-center">
+    🎄 1 Week Advent Calendar
+  </div>
+    </div>
+  </div>
+</div>
+
+
+  <main class="gift-screen">
+    <h1>🎁 Day 5 Gift</h1>
+<img src="/assets/img/gifts/day5.png" class="gift-image">
+
+<button id="play-bgm" class="bgm-button">BGM 🎶</button>
+<audio id="bgm-audio" src="/assets/audio/day5.mp3"></audio>
+
+<script>
+document.getElementById("play-bgm").addEventListener("click", () => {
+  const bgm = document.getElementById("bgm-audio");
+  bgm.volume = 0.5;
+  bgm.play();
+});
+</script>
+
+    <button class="to-top" aria-label="Scroll to top">⌃</button>
+  </main>
+
+  <script src="/assets/js/snow.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

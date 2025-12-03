@@ -285,8 +285,43 @@ function submitPasscode() {
 document.addEventListener("DOMContentLoaded", () => {
   const now = new Date();
 
+  /* ===== ロック画面の大きな日付 ===== */
   const bigDate = document.getElementById("big-date");
   if (bigDate) {
+    bigDate.textContent =
+      `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+  }
+
+  /* ===== ヘッダーの日付 & カウントダウン ===== */
+  const statusDateEl = document.getElementById("status-date");
+  const statusCountdownEl = document.getElementById("status-countdown");
+
+  if (statusDateEl) {
+    // 例: 2024/12/18 (Wed)
+    const weekdayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const w = weekdayNames[now.getDay()];
+    statusDateEl.textContent =
+      `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} (${w})`;
+  }
+
+  if (statusCountdownEl) {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const thisYear = now.getFullYear();
+    const christmas = new Date(thisYear, 11, 25); // 11 = December
+
+    let diffDays = Math.ceil((christmas - now) / msPerDay);
+
+    // もし 12/26 以降なら、次の年のクリスマスまで
+    if (diffDays < 0) {
+      const nextChristmas = new Date(thisYear + 1, 11, 25);
+      diffDays = Math.ceil((nextChristmas - now) / msPerDay);
+    }
+
+    if (diffDays === 0) {
+      statusCountdownEl.textContent = "🎁 Today is Christmas!";
+    } else {
+      statusCountdownEl.textContent = `Christmasまであと ${diffDays}日！楽しみだね⸜(  ᷇࿀ ᷆  )⸝`;
+    }
     bigDate.textContent = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
   }
 

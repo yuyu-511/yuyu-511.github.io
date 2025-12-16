@@ -8,7 +8,8 @@ main_class: "gift-screen"
 
 <p class="special-sub">
   Merry Christmas!  
-  This is your special present 🎁✨
+  スペシャルギフトだよおっ 🎁✨
+  実物もあるから受け取ってねっ！
 </p>
 
 <!-- 🎁 特別ギフト画像（ファイル名は自由に変更 OK） -->
@@ -31,6 +32,23 @@ main_class: "gift-screen"
   ⌂ Back to Home
 </a>
 
+<script>
+(function () {
+  const now = new Date();
+  const jstNow = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
+  );
+
+  const year = jstNow.getFullYear();
+  const openDate = new Date(year, 11, 25);
+
+  if (jstNow < openDate) {
+    alert("🎄 このギフトは12/25からだよっ！");
+    window.location.href = "/";
+  }
+})();
+</script>
+
 <style>
 .special-sub {
   font-size: 15px;
@@ -38,3 +56,8 @@ main_class: "gift-screen"
   opacity: 0.9;
 }
 </style>
+
+<!-- 🔙 ホーム画面に戻るボタン -->
+<a href="{{ '/' | relative_url }}" class="gift-back-button">
+  ⌂ Back to Home
+</a>

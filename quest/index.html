@@ -8,7 +8,8 @@ main_class: "quest-screen"
 
   <h1 class="quest-title">🎁 Christmas Quest</h1>
   <p class="quest-sub">
-    ビンゴシートの光っている場所を読んで、秘密のキーワードを探してね。
+    12/25のクリスマススペシャルギフトを開けるためのクエストですっ！
+    ビンゴシートの光っている場所を読んで、キーワードをつくってね！
   </p>
 
   <!-- ================================
@@ -116,7 +117,7 @@ main_class: "quest-screen"
   </div>
 
   <p class="hint-sub">
-    この9つをつないで導かれる単語を入力すると…？
+    この9つをつないだ単語を入力すると…？
   </p>
 
   <!-- ================================
@@ -175,6 +176,28 @@ function closeQuestPassword() {
 function submitQuestPassword() {
   const input = document.getElementById("quest-pass-input").value.trim().toLowerCase();
 
+  /* ================================
+      🎄 Date Check (12/25 JST)
+  ================================= */
+  const now = new Date();
+
+  // JSTに変換
+  const jstNow = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
+  );
+
+  const year = jstNow.getFullYear();
+  const openDate = new Date(year, 11, 25); // 月は0始まり → 11 = 12月
+
+  if (jstNow < openDate) {
+    document.getElementById("quest-pass-error").textContent =
+      "んーーー、まだ開けれないよっ！🎄 12/25まで待ってねっ";
+    return;
+  }
+
+  /* ================================
+      Keyword Check
+  ================================= */
   if (input === "merryxmas") {
 
     const modal = document.querySelector(".password-modal-inner");
@@ -190,3 +213,8 @@ function submitQuestPassword() {
   }
 }
 </script>
+
+<!-- 🔙 ホーム画面に戻るボタン -->
+<a href="{{ '/' | relative_url }}" class="gift-back-button">
+  ⌂ Back to Home
+</a>
